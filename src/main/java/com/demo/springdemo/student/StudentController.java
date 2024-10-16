@@ -1,6 +1,8 @@
 package com.demo.springdemo.student;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -38,6 +40,7 @@ public class StudentController {
     }
 
     @DeleteMapping("/{email}")
+    @Transactional
     public void delete(@PathVariable String email){
         studentService.delete(email);
     }
